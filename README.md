@@ -1,5 +1,19 @@
 # Design patterns in Python
 
+## Design Pattern Classification 
+1. Creational - deals with object creation 
+2. Structural- Object relationship
+3. Behaviorial - Object interaction and responsibility
+
+## SOLID
+S- Single responsibility
+O - Open/Closed principle
+L - Liskov substitution principle
+I - Interface segregation principle ---> Abstract base classes
+D - Dependency Inversion Principle
+
+
+---
 This repository contains python implementations of common design patterns based on
 [Design Patterns with Python](https://app.pluralsight.com/library/courses/python-design-patterns) course.
 
