@@ -6,12 +6,11 @@
 3. Behaviorial - Object interaction and responsibility
 
 ## SOLID
-S- Single responsibility
-O - Open/Closed principle
-L - Liskov substitution principle
-I - Interface segregation principle ---> Abstract base classes
-D - Dependency Inversion Principle
-
+S- Single responsibility <br>
+O - Open/Closed principle <br>
+L - Liskov substitution principle <br>
+I - Interface segregation principle ---> Abstract base classes <br><br>
+D - Dependency Inversion Principle <br>
 
 ---
 This repository contains python implementations of common design patterns based on
@@ -48,7 +47,20 @@ Simple ABC usage scenario.
 
 ### Strategy
 
-Strategy pattern implementation. It allows you to encapsulate algorithms into the absolutely separated objects.
+Strategy pattern implementation allows you to encapsulate algorithms into the absolutely separated objects.
+
+#### Before the Strategy: Problems Discovered
+- Violates single responsibility
+An order should not be concerned with how the products will eventually be shipped. 
+
+- Violates Open/Closed principle
+Shipping Cost method computes the cost according to the shippers stored in order. If the shipper is not one of thoese, it raise an expectation. The method then calls a provate
+
+- Violates Dependency Inversion principle 
+Since we are programming to a concrete class and method, the shipping cost class and its shipping cost method is not abstract
+
+- Long list of if/ elif clauses is a bit fagile anf whenever you see if/elif, it's good to ask if the code should be written better
+
 
 In this example we need to calculate Order shipping cost, that depends on shipping type: postal, FedEx, UPS.
 * `Order` – just an empty class, that represents real order.
@@ -69,9 +81,14 @@ notifies observers instances and they do their job.
 * `ClosedTickets` – observer, calculates (and prints) the sum of total closed tickets
 * `KPIsDisplay` – observer, just displays the current KPIs every time `update` is fired.
 
-### Command
+### Command (Action or Transaction Pattern)(Behavioral)
 
-Command pattern with commands auto-discovery and fallback to NoCommand if there is no available command.
+Command Pattern provides a way to encapsulate a request as an object. The encapusulation lets you parametrize various objetcs with different requests.The command pattern also provides a simple way to support quenues and logs i.e. updating a databse ot creating an audit trail of requests. Command pattern with commands auto-discovery and fallback to NoCommand if there is no available command.
+- separate command logic
+- add potential capabilites
+  - validation
+  - undo
+
 
 * `command.commands.*` – contains custom available commands.
 * `command.executor.CommandExecutor` – the class, that is able to discovery and execute commands.
